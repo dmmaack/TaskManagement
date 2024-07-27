@@ -47,6 +47,10 @@ public class UserEntityMap : IEntityTypeConfiguration<UserEntity>
             .IsRequired()
             .HasColumnType("BIT");
 
+        builder.Property(x => x.UserRule)
+            .IsRequired()
+            .HasColumnType("INT");
+
         builder.HasMany(x => x.Tasks)
             .WithOne(x => x.User)
             .HasForeignKey(x => x.UserId)

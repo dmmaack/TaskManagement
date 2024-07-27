@@ -1,5 +1,6 @@
 using Bogus;
 using Bogus.DataSets;
+using TaskManagement.Core.Enums;
 using TaskManagement.Domain.Entities;
 
 namespace TaskManagement.Tests.Fixture;
@@ -13,7 +14,8 @@ public class UserEntityFixture
                               userName: new Name().FirstName(),
                               password:new Internet().Password(length: 12, prefix: "%"),
                               registerDate: new Date().Future(),
-                              isActive: true
+                              isActive: true,
+                              userRule: (int)UserRulesEnum.User
         );
     }
 
@@ -24,7 +26,8 @@ public class UserEntityFixture
                               userName: new Name().FirstName(),
                               password:new Internet().Password(length: 12),
                               registerDate: new Date().Future(),
-                              isActive: true
+                              isActive: true,
+                              userRule: (int)UserRulesEnum.User
         );
     }
 }

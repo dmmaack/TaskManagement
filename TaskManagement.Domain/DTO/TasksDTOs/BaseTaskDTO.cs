@@ -2,14 +2,18 @@ namespace TaskManagement.Domain.DTO.TasksDTOs;
 
 public class BaseTaskDTO
 {
-    public BaseTaskDTO(long id, string title, DateTime startDate, 
-        DateTime registerDate, int priority, long assignedTo)
+    public BaseTaskDTO(long id, string title, DateTime startDate, DateTime endDate,
+        DateTime registerDate, int priority, string description, int status, long userId, long assignedTo)
     {
         this.Id = id;
         this.Title = title;
         this.StartDate = startDate;
+        this.EndDate = endDate;
         this.RegisterDate = registerDate;
         this.Priority = priority;
+        this.Description = description;
+        this.Status = status;
+        this.UserId = userId;
         this.AssignedTo = assignedTo;
     }
 

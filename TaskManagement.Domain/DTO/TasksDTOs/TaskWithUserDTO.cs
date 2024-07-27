@@ -1,42 +1,21 @@
 namespace TaskManagement.Domain.DTO.TasksDTOs;
 
-public class TaskWithUserDTO
+public class TaskWithUserDTO : BaseTaskDTO
 {
-    public TaskWithUserDTO(long id, string title, string description, 
-        DateTime startDate, DateTime endDate, DateTime registerDate, 
-        int status, int priority, long userId, string userCreator, 
-        long assignedTo, string assignedToUser)
+    public TaskWithUserDTO(long id, string title, string description, DateTime startDate, 
+        DateTime endDate, DateTime registerDate, int status, int priority, long userId, 
+        string userCreatorName, long assignedTo, string assignedToUserName) 
+        : base(id, title, startDate, endDate, registerDate, priority, description, status, userId, assignedTo)
     {
-        Id = id;
-        Title = title;
-        Description = description;
-        StartDate = startDate;
-        EndDate = endDate;
-        RegisterDate = registerDate;
-        Status = status;
-        Priority = priority;
-        UserId = userId;
-        UserCreator = userCreator;
-        AssignedTo = assignedTo;
-        AssignedToUser = assignedToUser;
+        UserCreatorName = userCreatorName;
+        AssignedToUserName = assignedToUserName;
     }
 
     public TaskWithUserDTO() { }
 
-    public long Id { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public DateTime StartDate { get; set; }
-    public DateTime EndDate { get; set; }
-    public DateTime RegisterDate { get; set; }
-    public int Status { get; set; }
-    public int Priority { get; set; }
 
-    public long UserId { get; set; }
-    public string UserCreator { get; set; }
-
-    public long AssignedTo { get; set; }
-    public string AssignedToUser { get; set; }
+    public string UserCreatorName { get; set; }
+    public string AssignedToUserName { get; set; }
 
 
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using TaskManagement.Core.Enums;
 
 namespace TaskManagement.Domain.Entities;
 
@@ -27,6 +28,9 @@ public class UserEntity : BaseEntity
 
     public bool? IsActive { get; private set; } = true;
 
+    public int UserRule { get; set; } = (int)UserRulesEnum.NoPermission;
+    
+
     public IEnumerable<TaskEntity> Tasks { get; set; }
 
     public IEnumerable<TaskEntity> TasksAssigned { get; set; }
@@ -34,7 +38,7 @@ public class UserEntity : BaseEntity
     public UserEntity() { }
 
     public UserEntity(int id, string name, string email, string userName, string password,
-                      DateTime registerDate, bool isActive)
+                      DateTime registerDate, bool isActive, int userRule)
                       : base(id)
     {
         Name = name;
@@ -43,6 +47,7 @@ public class UserEntity : BaseEntity
         Password = password;
         RegisterDate = registerDate;
         IsActive = isActive;
+        UserRule = userRule;
 
         Tasks = new HashSet<TaskEntity>();
         TasksAssigned = new HashSet<TaskEntity>();
