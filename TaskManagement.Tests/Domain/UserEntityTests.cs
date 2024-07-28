@@ -16,7 +16,7 @@ public class UserEntityTests
 
     }
 
-    [Fact(DisplayName = "Create_WhenUserHasInvalidPassword_ReturnFalse")]
+    [Fact(DisplayName = "Create When User Has Invalid Password Return False")]
     public void Create_WhenUserHasInvalidPassword_ReturnFalse()
     {
         //Dado que eu tenha um usuário.

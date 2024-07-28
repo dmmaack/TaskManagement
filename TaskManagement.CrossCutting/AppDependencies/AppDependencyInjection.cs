@@ -2,13 +2,15 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TaskManagement.Application.Commands.UserCommands.CreateUserCommand;
+using TaskManagement.Application.Commands.TasksCommands.CreateTasksCommand;
+using TaskManagement.Application.Commands.TasksCommands.UpdateTasksCommand;
+using TaskManagement.Application.Commands.UsersCommands.CreateUsersCommand;
 using TaskManagement.Domain.DTO.TasksDTOs;
 using TaskManagement.Domain.DTO.UsersDTOs;
 using TaskManagement.Domain.Entities;
 using TaskManagement.Domain.Interfaces.Repositories;
 using TaskManagement.Infra.Context;
-using TaskManagement.Infra.Reposditories;
+using TaskManagement.Infra.Repositories;
 
 namespace TaskManagement.CrossCutting.AppDependencies;
 
@@ -27,7 +29,7 @@ public static class AppDependencyInjection
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         // MediatR
-        var handlers = AppDomain.CurrentDomain.Load("TaskManager.Application");
+        var handlers = AppDomain.CurrentDomain.Load("TaskManagement.Application");
         services.AddMediatR(cfg =>
         {
             cfg.RegisterServicesFromAssemblies(handlers);
@@ -36,8 +38,10 @@ public static class AppDependencyInjection
         var autoMapperConfig = new MapperConfiguration(conf => 
             {
                 conf.CreateMap<UserEntity, BaseUserDTO>().ReverseMap();
-                conf.CreateMap<UserEntity, CreateUserCommand>().ReverseMap();
+                conf.CreateMap<UserEntity, CreateUsersCommand>().ReverseMap();
                 conf.CreateMap<TaskEntity, BaseTaskDTO>().ReverseMap();
+                conf.CreateMap<TaskEntity, CreateTasksCommand>().ReverseMap();
+                conf.CreateMap<TaskEntity, UpdateTasksCommand>().ReverseMap();
             }
         );
 

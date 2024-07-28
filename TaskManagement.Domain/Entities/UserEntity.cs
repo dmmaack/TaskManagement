@@ -7,7 +7,7 @@ public class UserEntity : BaseEntity
 {
     [Required(ErrorMessage = "O nome não pode ser vazio.")]
     [MinLength(3, ErrorMessage = "O nome deve ter no mínimo 3 caracteres.")]
-    [MaxLength(80, ErrorMessage = "O nome deve ter no máximo 80 caracteres.")]  
+    [MaxLength(80, ErrorMessage = "O nome deve ter no máximo 80 caracteres.")]
     public string Name { get; private set; }
 
     [Required(ErrorMessage = "O email não pode ser vazio.")]
@@ -28,12 +28,15 @@ public class UserEntity : BaseEntity
 
     public bool? IsActive { get; private set; } = true;
 
-    public int UserRule { get; set; } = (int)UserRulesEnum.NoPermission;
-    
+    public int UserRule { get; private set; } = (int)UserRulesEnum.NoPermission;
+
+    public UserRulesEnum UserRuleEnum { get { return (UserRulesEnum)UserRule; } }
+
 
     public IEnumerable<TaskEntity> Tasks { get; set; }
 
     public IEnumerable<TaskEntity> TasksAssigned { get; set; }
+
 
     public UserEntity() { }
 
@@ -58,10 +61,12 @@ public class UserEntity : BaseEntity
 
     public void SetUserId(long id) => Id = id;
 
+    public bool IsAdmin() => this.UserRule.Equals((int)UserRulesEnum.Administrator);
+
     public void ValidateUser()
     {
         this.Validate(this);
     }
 
-    
+
 }

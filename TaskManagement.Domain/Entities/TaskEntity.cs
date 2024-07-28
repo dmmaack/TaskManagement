@@ -50,6 +50,9 @@ public class TaskEntity : BaseEntity
     public UserEntity User { get; private set; }
     public UserEntity UserAssigned { get; private set; }
 
+
+    public void SetTaskId(long taskId) => Id = taskId;
+
     public void ValidateUser()
     {
         this.Validate(this);

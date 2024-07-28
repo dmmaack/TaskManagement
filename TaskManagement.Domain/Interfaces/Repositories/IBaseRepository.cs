@@ -8,4 +8,5 @@ public interface IBaseRepository<T> where T : class
     Task<IEnumerable<T>> GetAllAsync();
     Task<T> GetByIdAsync(long id, bool asNoTracking = true);
     Task<T> CreateAsync(T obj);
+    Task RemoveAsync(long id);
 }

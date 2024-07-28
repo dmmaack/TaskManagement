@@ -2,7 +2,7 @@ namespace TaskManagement.Tests.Domain;
 
 public class TaskEntityTests
 {
-    [Fact(DisplayName = "Create_WhenTaskIsValid_ReturnTrue")]
+    [Fact(DisplayName = "Create When Task Is Valid Return True")]
     public void Create_WhenTaskIsValid_ReturnTrue()
     {
         //Dado que eu tenha um usuário.
@@ -16,7 +16,7 @@ public class TaskEntityTests
 
     }
 
-    [Fact(DisplayName = "Create_WhenTaskHasInvalidTitle_ReturnTrue")]
+    [Fact(DisplayName = "Create When Task Has Invalid Title Return True")]
     public void Create_WhenTaskHasInvalidPassword_ReturnFalse()
     {
         //Dado que eu tenha um usuário.
