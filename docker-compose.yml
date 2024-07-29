@@ -11,7 +11,7 @@ services:
     container_name: sqlserver-homolog
     image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
-      SA_PASSWORD: "Dmm@dmaack4641"
+      SA_PASSWORD: "[usar senha forte]"
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Developer"
     ports:
