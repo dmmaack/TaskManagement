@@ -34,7 +34,7 @@ public class CreateTasksCommandValidator : AbstractValidator<CreateTasksCommand>
         
         RuleFor(x => x.RegisterDate)
             .NotEmpty().NotNull().WithMessage("A data de Registro deve ser preenchida.")
-            .GreaterThanOrEqualTo(DateTime.UtcNow).WithMessage("A Data de Registro deve ser maior ou igual ao dia de hoje.")
+            .GreaterThanOrEqualTo(DateTime.UtcNow.Date).WithMessage("A Data de Registro deve ser maior ou igual ao dia de hoje.")
             .WithName(nameof(CreateTasksCommand.Description));
 
         RuleFor(x => x.UserId)

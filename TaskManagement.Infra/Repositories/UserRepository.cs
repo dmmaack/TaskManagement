@@ -21,4 +21,12 @@ public class UserRepository(AppDbContext appDbContext) : BaseRepository<UserEnti
     {
         return this._appDbContext.Users.Update(user).Entity;
     }
+
+    public async Task<UserEntity> GetUserLogin(string email, string password)
+    {
+        Expression<Func<UserEntity, bool>> predicate = 
+            predicate => predicate.Email.Equals(email) && predicate.Password.Equals(password);
+
+        return (await this.GetAsync(predicate)).FirstOrDefault();
+    }
 }

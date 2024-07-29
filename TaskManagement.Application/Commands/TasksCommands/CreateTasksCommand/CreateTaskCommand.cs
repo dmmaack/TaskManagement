@@ -3,11 +3,14 @@ using TaskManagement.Application.Commands.Validators;
 using TaskManagement.Application.Commands.Validators.TasksCommands;
 using TaskManagement.Core.Comunications.Messages.Notifications;
 using TaskManagement.Domain.DTO.TasksDTOs;
+using TaskManagement.Domain.DTO.UsersDTOs;
 
 namespace TaskManagement.Application.Commands.TasksCommands.CreateTasksCommand;
 
 public class CreateTasksCommand : BaseValidations, IRequest<NotificationResult<BaseTaskDTO>>
 {
+    public LoggedUserDTO LoggedUser { get; set; }
+    
     public string Title { get; set; }
     public string Description { get; set; }
     public DateTime StartDate { get; set; }

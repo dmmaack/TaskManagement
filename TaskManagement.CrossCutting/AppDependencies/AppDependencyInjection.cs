@@ -1,7 +1,10 @@
+using System.Text;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using TaskManagement.Application.Commands.TasksCommands.CreateTasksCommand;
 using TaskManagement.Application.Commands.TasksCommands.UpdateTasksCommand;
 using TaskManagement.Application.Commands.UsersCommands.CreateUsersCommand;
@@ -50,4 +53,29 @@ public static class AppDependencyInjection
 
         return services;
     }
+
+    public static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
+    {
+        var key = Encoding.ASCII.GetBytes(configuration.GetSection("PrivateKey").Value);
+        services.AddAuthentication(x =>
+        {
+            x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(x =>
+        {
+            x.RequireHttpsMetadata = false;
+            x.SaveToken = true;
+            x.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            };
+        });
+
+        return services;
+    }
+
 }
