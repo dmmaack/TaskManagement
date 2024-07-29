@@ -1,5 +1,6 @@
 using AutoMapper;
 using TaskManagement.Application.Commands.TasksCommands.CreateTasksCommand;
+using TaskManagement.Application.Commands.TasksCommands.QueriesCommand;
 using TaskManagement.Application.Commands.TasksCommands.UpdateTasksCommand;
 using TaskManagement.Application.Commands.UsersCommands.CreateUsersCommand;
 using TaskManagement.Domain.DTO.TasksDTOs;
@@ -19,6 +20,7 @@ public class AutoMapperConfiguration
             conf.CreateMap<TaskEntity, BaseTaskDTO>().ReverseMap();
             conf.CreateMap<TaskEntity, CreateTasksCommand>().ReverseMap();
             conf.CreateMap<TaskEntity, UpdateTasksCommand>().ReverseMap();
+            conf.CreateMap<TaskEntity, GetAllTasksCommand>().ReverseMap();
 
         });
 

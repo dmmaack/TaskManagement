@@ -1,7 +1,9 @@
 using AutoMapper;
 using MediatR;
 using TaskManagement.Core.Comunications.Messages.Notifications;
+using TaskManagement.Core.Enums;
 using TaskManagement.Domain.DTO.TasksDTOs;
+using TaskManagement.Domain.Entities;
 using TaskManagement.Domain.Interfaces.Repositories;
 
 namespace TaskManagement.Application.Commands.TasksCommands.QueriesCommand;
@@ -19,7 +21,15 @@ public class GetAllTasksCommandHandler : IRequestHandler<GetAllTasksCommand, Not
 
     public async Task<NotificationResult<IEnumerable<BaseTaskDTO>>> Handle(GetAllTasksCommand request, CancellationToken cancellationToken)
     {
-        var allTaks = await _taskRepository.GetAllAsync();
+        IEnumerable<TaskEntity> allTaks;
+        
+        // regra: caso o usuario logado seja administrador, busca todas as tasks
+        // caso for usuario normal, busca somente as suas tarefas
+        if(request.LoggedUser.GetRule.Equals(UserRulesEnum.Administrator))
+            allTaks = await _taskRepository.GetAllAsync();
+        else
+            allTaks = await _taskRepository.GetAllByAssignedToAsync(request.LoggedUser.Id);
+
 
         if (allTaks == null || !allTaks.Any())
             return new NotificationResult<IEnumerable<BaseTaskDTO>>(false, 

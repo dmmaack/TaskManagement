@@ -6,4 +6,5 @@ public interface IUserRepository : IBaseRepository<UserEntity>
 {
     UserEntity UpdateUser(UserEntity user);
     Task<IEnumerable<UserEntity>> SearchUsers(string specification);
+    Task<UserEntity> GetUserLogin(string email, string password);
 }

@@ -2,6 +2,7 @@ using System.Net;
 using AutoMapper;
 using MediatR;
 using TaskManagement.Core.Comunications.Messages.Notifications;
+using TaskManagement.Core.Enums;
 using TaskManagement.Domain.DTO.TasksDTOs;
 using TaskManagement.Domain.Entities;
 using TaskManagement.Domain.Interfaces.Repositories;
@@ -21,6 +22,15 @@ public class UpdateTasksCommandHandler: IRequestHandler<UpdateTasksCommand, Noti
 
     public async Task<NotificationResult<BaseTaskDTO>> Handle(UpdateTasksCommand request, CancellationToken cancellationToken)
     {
+        if(!request.LoggedUser.GetRule.Equals(UserRulesEnum.Administrator) && !request.LoggedUser.Id.Equals(request.Id))
+        {
+            return new NotificationResult<BaseTaskDTO>(false,
+                new DomainNotification("Somante Administrador e o usuário da própria tarefa podem altera-la.", 
+                [],
+                HttpStatusCode.NotModified),
+                new BaseTaskDTO());
+        }   
+
         request.ValidateTask();
 
         if(!request.IsValid())

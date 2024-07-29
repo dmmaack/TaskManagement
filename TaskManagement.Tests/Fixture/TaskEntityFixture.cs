@@ -32,4 +32,14 @@ public class TaskEntityFixture
                 userId: 2, 
                 assignedTo: 3
             );
+
+        public static List<TaskEntity> CreateListValidTask(int limit = 5)
+        {
+            var list = new List<TaskEntity>();
+
+            for (int i = 0; i < limit; i++)
+                list.Add(CreateValid_TaskEntity());
+
+            return list;
+        }
 }
