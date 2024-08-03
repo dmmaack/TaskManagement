@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Infra", "TaskManagement.Infra\TaskManagement.Infra.csproj", "{FCEAC53B-F4AE-4A7A-B570-B6BD9DBBC4F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Infra", "04-TaskManagement.Infra\TaskManagement.Infra.csproj", "{FCEAC53B-F4AE-4A7A-B570-B6BD9DBBC4F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Api", "TaskManagement.Api\TaskManagement.Api.csproj", "{6C967C84-6940-48DA-AEB7-042282F80485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Api", "01-TaskManagement.Api\TaskManagement.Api.csproj", "{6C967C84-6940-48DA-AEB7-042282F80485}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Application", "TaskManagement.Application\TaskManagement.Application.csproj", "{5D4F8A37-623C-49A4-AA9C-7DEB6F2103AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Application", "02-TaskManagement.Application\TaskManagement.Application.csproj", "{5D4F8A37-623C-49A4-AA9C-7DEB6F2103AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Core", "TaskManagement.Core\TaskManagement.Core.csproj", "{21CA6E67-C99E-4053-B0F9-51424BE762EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Core", "06-TaskManagement.Core\TaskManagement.Core.csproj", "{21CA6E67-C99E-4053-B0F9-51424BE762EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.CrossCutting", "TaskManagement.CrossCutting\TaskManagement.CrossCutting.csproj", "{FE922E3D-FDA6-49FC-A1CD-CDEAE47B3571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.CrossCutting", "03-TaskManagement.CrossCutting\TaskManagement.CrossCutting.csproj", "{FE922E3D-FDA6-49FC-A1CD-CDEAE47B3571}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Domain", "TaskManagement.Domain\TaskManagement.Domain.csproj", "{AAF5710F-BC63-4CAB-A760-E391727EF8C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Domain", "05-TaskManagement.Domain\TaskManagement.Domain.csproj", "{AAF5710F-BC63-4CAB-A760-E391727EF8C9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Tests", "TaskManagement.Tests\TaskManagement.Tests.csproj", "{DE9A802F-CE53-4675-8724-1879792D7ADC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagement.Tests", "07-TaskManagement.Tests\TaskManagement.Tests.csproj", "{DE9A802F-CE53-4675-8724-1879792D7ADC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Database", "TaskManagement.Database\TaskManagement.Database.csproj", "{65923434-5821-4F85-806A-B04481BB4F80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Database", "08-TaskManagement.Database\TaskManagement.Database.csproj", "{65923434-5821-4F85-806A-B04481BB4F80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Console", "09-TaskManagement.Console\TaskManagement.Console.csproj", "{CBF66B31-A9BC-4FA6-AF85-8ECED6838CB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{65923434-5821-4F85-806A-B04481BB4F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65923434-5821-4F85-806A-B04481BB4F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65923434-5821-4F85-806A-B04481BB4F80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF66B31-A9BC-4FA6-AF85-8ECED6838CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF66B31-A9BC-4FA6-AF85-8ECED6838CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF66B31-A9BC-4FA6-AF85-8ECED6838CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF66B31-A9BC-4FA6-AF85-8ECED6838CB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
